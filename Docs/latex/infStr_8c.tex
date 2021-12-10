@@ -1,0 +1,313 @@
+\hypertarget{infStr_8c}{}\doxysection{src/inf\+Str.c File Reference}
+\label{infStr_8c}\index{src/infStr.c@{src/infStr.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}infstr.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{infStr_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\item 
+\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$ \mbox{\hyperlink{infStr_8c_a0ae3210a39a71fbdb3b652438d46cc49}{init\+Str}} (\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$str)
+\begin{DoxyCompactList}\small\item\em Initialize \mbox{\hyperlink{structinfStr}{inf\+Str}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{infStr_8c_aca8986cd7d3621377da51d4269868939}{fill\+Str}} (\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$str, char $\ast$chars, int num)
+\begin{DoxyCompactList}\small\item\em fill the string from the beginning. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$ \mbox{\hyperlink{infStr_8c_ad0592bf654ba23cde3e7a9103b50dd8b}{append}} (\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$str, char $\ast$chars, int num)
+\begin{DoxyCompactList}\small\item\em Append chars to the end of Inf\+Str. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{infStr_8c_a4e1e6446f53a6f7bafa3907c577287f4}{clear}} (\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$str)
+\begin{DoxyCompactList}\small\item\em Clear the string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{alloc\+Str}} (\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$str, int num)
+\begin{DoxyCompactList}\small\item\em allocating memory \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{infStr_8c_a4f8a60b5b8aaf9f9fcf19a7c777bd479}{dealloc\+Str}} (\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$str)
+\begin{DoxyCompactList}\small\item\em deallocating memory should be called before lifetme of \mbox{\hyperlink{structinfStr}{inf\+Str}} end \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}\label{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}} 
+\index{infStr.c@{infStr.c}!allocStr@{allocStr}}
+\index{allocStr@{allocStr}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{allocStr()}{allocStr()}}
+{\footnotesize\ttfamily int alloc\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$}]{str,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+allocating memory 
+
+\begin{DoxyReturn}{Returns}
+Number of character that has been allocated 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \mbox{\hyperlink{structinfStr}{inf\+Str}} obj \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00130}{130}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130                                    \{}
+\DoxyCodeLine{00131   str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} = (\textcolor{keywordtype}{char}*) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*num);}
+\DoxyCodeLine{00132   str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}} = num;}
+\DoxyCodeLine{00133   \textcolor{keywordflow}{return} str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}};}
+\DoxyCodeLine{00134 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{infstr_8h_source_l00009}{inf\+Str\+::alloc\+Size}}, and \mbox{\hyperlink{infstr_8h_source_l00007}{inf\+Str\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{infStr_8c_source_l00079}{append()}}, \mbox{\hyperlink{infStr_8c_source_l00053}{fill\+Str()}}, and \mbox{\hyperlink{infStr_8c_source_l00029}{init\+Str()}}.
+
+\mbox{\Hypertarget{infStr_8c_ad0592bf654ba23cde3e7a9103b50dd8b}\label{infStr_8c_ad0592bf654ba23cde3e7a9103b50dd8b}} 
+\index{infStr.c@{infStr.c}!append@{append}}
+\index{append@{append}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$ append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$}]{str,  }\item[{char $\ast$}]{chars,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Append chars to the end of Inf\+Str. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \mbox{\hyperlink{structinfStr}{inf\+Str}} object \\
+\hline
+{\em chars} & new characters that need to be appended \\
+\hline
+{\em num} & new character length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]clean and optimize allocation strategy\end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00079}{79}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079                                                   \{}
+\DoxyCodeLine{00080   \textcolor{keywordtype}{int} alloc = 1;}
+\DoxyCodeLine{00081   \textcolor{keywordflow}{if}(str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} + num >= str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}}) \{}
+\DoxyCodeLine{00082     }
+\DoxyCodeLine{00083     alloc = str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}};}
+\DoxyCodeLine{00084     \textcolor{comment}{// allocate new memory}}
+\DoxyCodeLine{00085     \textcolor{keywordflow}{while}(alloc < num + str-\/>len) \{}
+\DoxyCodeLine{00086       alloc = alloc * 2;}
+\DoxyCodeLine{00087     \}}
+\DoxyCodeLine{00088     \textcolor{comment}{// simpan char lama, dealloc, balikin}}
+\DoxyCodeLine{00089     \textcolor{keywordtype}{char}* save = (\textcolor{keywordtype}{char}*) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}}+num+1);}
+\DoxyCodeLine{00090     \textcolor{keywordtype}{int} old\_len  = str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}};}
+\DoxyCodeLine{00091     strncpy(save, str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}}, str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}});}
+\DoxyCodeLine{00092     strncat(save, chars, num);}
+\DoxyCodeLine{00093    }
+\DoxyCodeLine{00094     free(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}});}
+\DoxyCodeLine{00095     \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(str, alloc);}
+\DoxyCodeLine{00096     str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} = save;}
+\DoxyCodeLine{00097     str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = old\_len + num;}
+\DoxyCodeLine{00098     str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}} = alloc;}
+\DoxyCodeLine{00099     str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}};}
+\DoxyCodeLine{00100     str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} + str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}};}
+\DoxyCodeLine{00101     \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{00102     }
+\DoxyCodeLine{00103   \}}
+\DoxyCodeLine{00104   \textcolor{comment}{// string aman}}
+\DoxyCodeLine{00105   strncat(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}}, chars, num);}
+\DoxyCodeLine{00106   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} + num;}
+\DoxyCodeLine{00107   \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{00108 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{infstr_8h_source_l00009}{inf\+Str\+::alloc\+Size}}, \mbox{\hyperlink{infStr_8c_source_l00130}{alloc\+Str()}}, \mbox{\hyperlink{infstr_8h_source_l00011}{inf\+Str\+::end}}, \mbox{\hyperlink{infstr_8h_source_l00008}{inf\+Str\+::len}}, \mbox{\hyperlink{infstr_8h_source_l00010}{inf\+Str\+::start}}, and \mbox{\hyperlink{infstr_8h_source_l00007}{inf\+Str\+::str}}.
+
+\mbox{\Hypertarget{infStr_8c_a4e1e6446f53a6f7bafa3907c577287f4}\label{infStr_8c_a4e1e6446f53a6f7bafa3907c577287f4}} 
+\index{infStr.c@{infStr.c}!clear@{clear}}
+\index{clear@{clear}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily int clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Clear the string. 
+
+\begin{DoxyReturn}{Returns}
+number of character that has been cleared 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \mbox{\hyperlink{structinfStr}{inf\+Str}} object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00117}{117}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117                        \{}
+\DoxyCodeLine{00118   str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} = str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}};}
+\DoxyCodeLine{00119   }
+\DoxyCodeLine{00120   str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}};}
+\DoxyCodeLine{00121   \textcolor{keywordflow}{return} str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}};}
+\DoxyCodeLine{00122 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{infstr_8h_source_l00011}{inf\+Str\+::end}}, \mbox{\hyperlink{infstr_8h_source_l00008}{inf\+Str\+::len}}, \mbox{\hyperlink{infstr_8h_source_l00010}{inf\+Str\+::start}}, and \mbox{\hyperlink{infstr_8h_source_l00007}{inf\+Str\+::str}}.
+
+\mbox{\Hypertarget{infStr_8c_a4f8a60b5b8aaf9f9fcf19a7c777bd479}\label{infStr_8c_a4f8a60b5b8aaf9f9fcf19a7c777bd479}} 
+\index{infStr.c@{infStr.c}!deallocStr@{deallocStr}}
+\index{deallocStr@{deallocStr}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{deallocStr()}{deallocStr()}}
+{\footnotesize\ttfamily void dealloc\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+deallocating memory should be called before lifetme of \mbox{\hyperlink{structinfStr}{inf\+Str}} end 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Inf\+Str object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00142}{142}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00142                              \{}
+\DoxyCodeLine{00143   str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}} = 0;}
+\DoxyCodeLine{00144   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = 0;}
+\DoxyCodeLine{00145   free(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}});}
+\DoxyCodeLine{00146 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{infstr_8h_source_l00011}{inf\+Str\+::end}}, \mbox{\hyperlink{infstr_8h_source_l00008}{inf\+Str\+::len}}, \mbox{\hyperlink{infstr_8h_source_l00010}{inf\+Str\+::start}}, and \mbox{\hyperlink{infstr_8h_source_l00007}{inf\+Str\+::str}}.
+
+\mbox{\Hypertarget{infStr_8c_aca8986cd7d3621377da51d4269868939}\label{infStr_8c_aca8986cd7d3621377da51d4269868939}} 
+\index{infStr.c@{infStr.c}!fillStr@{fillStr}}
+\index{fillStr@{fillStr}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{fillStr()}{fillStr()}}
+{\footnotesize\ttfamily int fill\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$}]{str,  }\item[{char $\ast$}]{chars,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+fill the string from the beginning. 
+
+Will fill the function from the beginning of the pointer Should be called when first time you want to fill in the function
+
+\begin{DoxyWarning}{Warning}
+Make sure the string is null terminated if the input string is literal string, make sure you append + 1 to include the null byte
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+initialized str object. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & str object. \\
+\hline
+{\em chars} & input characters \\
+\hline
+{\em num} & length of chars \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00053}{53}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053                                                \{}
+\DoxyCodeLine{00054   \textcolor{keywordflow}{if}(num < 0) \{}
+\DoxyCodeLine{00055     fprintf(stderr, \textcolor{stringliteral}{"{}string length cannot be negative"{}});}
+\DoxyCodeLine{00056     exit(-\/1);}
+\DoxyCodeLine{00057   \}}
+\DoxyCodeLine{00058   \textcolor{keywordtype}{int} alloc = str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}};}
+\DoxyCodeLine{00059   \textcolor{keywordflow}{while}(alloc < num) \{}
+\DoxyCodeLine{00060     alloc = alloc * 2;}
+\DoxyCodeLine{00061   \}}
+\DoxyCodeLine{00062   \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(str, alloc);}
+\DoxyCodeLine{00063   \textcolor{keywordtype}{char}* ptr = chars;}
+\DoxyCodeLine{00064   strncpy(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}}, chars, num);}
+\DoxyCodeLine{00065   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = num;}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067   \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{00068 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{infstr_8h_source_l00009}{inf\+Str\+::alloc\+Size}}, \mbox{\hyperlink{infStr_8c_source_l00130}{alloc\+Str()}}, \mbox{\hyperlink{infstr_8h_source_l00008}{inf\+Str\+::len}}, and \mbox{\hyperlink{infstr_8h_source_l00007}{inf\+Str\+::str}}.
+
+\mbox{\Hypertarget{infStr_8c_a0ae3210a39a71fbdb3b652438d46cc49}\label{infStr_8c_a0ae3210a39a71fbdb3b652438d46cc49}} 
+\index{infStr.c@{infStr.c}!initStr@{initStr}}
+\index{initStr@{initStr}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{initStr()}{initStr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$ init\+Str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinfStr}{inf\+Str}} $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Initialize \mbox{\hyperlink{structinfStr}{inf\+Str}}. 
+
+This function should be called after \mbox{\hyperlink{structinfStr}{inf\+Str}} created.
+
+\begin{DoxyReturn}{Returns}
+initialized str object. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & str object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00029}{29}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029                              \{}
+\DoxyCodeLine{00030   \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(str, 2);}
+\DoxyCodeLine{00031   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = 0;}
+\DoxyCodeLine{00032   str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}};}
+\DoxyCodeLine{00033   str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}};}
+\DoxyCodeLine{00034  \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{00035 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{infStr_8c_source_l00130}{alloc\+Str()}}, \mbox{\hyperlink{infstr_8h_source_l00011}{inf\+Str\+::end}}, \mbox{\hyperlink{infstr_8h_source_l00008}{inf\+Str\+::len}}, \mbox{\hyperlink{infstr_8h_source_l00010}{inf\+Str\+::start}}, and \mbox{\hyperlink{infstr_8h_source_l00007}{inf\+Str\+::str}}.
+
+\mbox{\Hypertarget{infStr_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{infStr_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{infStr.c@{infStr.c}!main@{main}}
+\index{main@{main}!infStr.c@{infStr.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{infStr_8c_source_l00009}{9}} of file \mbox{\hyperlink{infStr_8c_source}{inf\+Str.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009            \{}
+\DoxyCodeLine{00010   \mbox{\hyperlink{structinfStr}{infStr}} str;}
+\DoxyCodeLine{00011   \mbox{\hyperlink{infStr_8c_a0ae3210a39a71fbdb3b652438d46cc49}{initStr}}(\&str);}
+\DoxyCodeLine{00012   \mbox{\hyperlink{infStr_8c_aca8986cd7d3621377da51d4269868939}{fillStr}}(\&str, \textcolor{stringliteral}{"{}lmao"{}}, 4);}
+\DoxyCodeLine{00013   \mbox{\hyperlink{infStr_8c_ad0592bf654ba23cde3e7a9103b50dd8b}{append}}(\&str, \textcolor{stringliteral}{"{}wikwok"{}}, 6);}
+\DoxyCodeLine{00014   printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, str.\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}});}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}

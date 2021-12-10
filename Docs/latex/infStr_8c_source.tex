@@ -1,0 +1,102 @@
+\hypertarget{infStr_8c_source}{}\doxysection{inf\+Str.\+c}
+\label{infStr_8c_source}\index{src/infStr.c@{src/infStr.c}}
+\mbox{\hyperlink{infStr_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00004}00004 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00005}00005 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00006}00006 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{infstr_8h}{infstr.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00009}00009 \textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00010}00010   \mbox{\hyperlink{structinfStr}{infStr}} str;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00011}00011   \mbox{\hyperlink{infStr_8c_a0ae3210a39a71fbdb3b652438d46cc49}{initStr}}(\&str);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00012}00012   \mbox{\hyperlink{infStr_8c_aca8986cd7d3621377da51d4269868939}{fillStr}}(\&str, \textcolor{stringliteral}{"{}lmao"{}}, 4);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00013}00013   \mbox{\hyperlink{infStr_8c_ad0592bf654ba23cde3e7a9103b50dd8b}{append}}(\&str, \textcolor{stringliteral}{"{}wikwok"{}}, 6);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00014}00014   printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, str.\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}});}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00016}00016   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00017}00017 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00029}\mbox{\hyperlink{infstr_8h_a0ae3210a39a71fbdb3b652438d46cc49}{00029}} \mbox{\hyperlink{structinfStr}{infStr}}* \mbox{\hyperlink{infStr_8c_a0ae3210a39a71fbdb3b652438d46cc49}{initStr}}(\mbox{\hyperlink{structinfStr}{infStr}}* str) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00030}00030   \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(str, 2);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00031}00031   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = 0;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00032}00032   str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00033}00033   str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00034}00034  \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00035}00035 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00053}\mbox{\hyperlink{infstr_8h_aca8986cd7d3621377da51d4269868939}{00053}} \textcolor{keywordtype}{int} \mbox{\hyperlink{infStr_8c_aca8986cd7d3621377da51d4269868939}{fillStr}}(\mbox{\hyperlink{structinfStr}{infStr}}* str, \textcolor{keywordtype}{char}* chars, \textcolor{keywordtype}{int} num) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00054}00054   \textcolor{keywordflow}{if}(num < 0) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00055}00055     fprintf(stderr, \textcolor{stringliteral}{"{}string length cannot be negative"{}});}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00056}00056     exit(-\/1);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00057}00057   \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00058}00058   \textcolor{keywordtype}{int} alloc = str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00059}00059   \textcolor{keywordflow}{while}(alloc < num) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00060}00060     alloc = alloc * 2;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00061}00061   \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00062}00062   \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(str, alloc);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00063}00063   \textcolor{keywordtype}{char}* ptr = chars;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00064}00064   strncpy(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}}, chars, num);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00065}00065   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = num;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00067}00067   \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00068}00068 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00079}\mbox{\hyperlink{infstr_8h_ad0592bf654ba23cde3e7a9103b50dd8b}{00079}} \mbox{\hyperlink{structinfStr}{infStr}}* \mbox{\hyperlink{infStr_8c_ad0592bf654ba23cde3e7a9103b50dd8b}{append}}(\mbox{\hyperlink{structinfStr}{infStr}}* str, \textcolor{keywordtype}{char}* chars, \textcolor{keywordtype}{int} num) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00080}00080   \textcolor{keywordtype}{int} alloc = 1;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00081}00081   \textcolor{keywordflow}{if}(str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} + num >= str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}}) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00082}00082     }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00083}00083     alloc = str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00084}00084     \textcolor{comment}{// allocate new memory}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00085}00085     \textcolor{keywordflow}{while}(alloc < num + str-\/>len) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00086}00086       alloc = alloc * 2;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00088}00088     \textcolor{comment}{// simpan char lama, dealloc, balikin}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00089}00089     \textcolor{keywordtype}{char}* save = (\textcolor{keywordtype}{char}*) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}}+num+1);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00090}00090     \textcolor{keywordtype}{int} old\_len  = str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00091}00091     strncpy(save, str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}}, str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}});}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00092}00092     strncat(save, chars, num);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00093}00093    }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00094}00094     free(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}});}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00095}00095     \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(str, alloc);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00096}00096     str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} = save;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00097}00097     str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = old\_len + num;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00098}00098     str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}} = alloc;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00099}00099     str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00100}00100     str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} + str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00101}00101     \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00102}00102     }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00103}00103   \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00104}00104   \textcolor{comment}{// string aman}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00105}00105   strncat(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}}, chars, num);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00106}00106   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} + num;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00107}00107   \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00108}00108 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00117}\mbox{\hyperlink{infstr_8h_a4e1e6446f53a6f7bafa3907c577287f4}{00117}} \textcolor{keywordtype}{int} \mbox{\hyperlink{infStr_8c_a4e1e6446f53a6f7bafa3907c577287f4}{clear}}(\mbox{\hyperlink{structinfStr}{infStr}}* str) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00118}00118   str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} = str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00119}00119   }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00120}00120   str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00121}00121   \textcolor{keywordflow}{return} str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00122}00122 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00130}\mbox{\hyperlink{infstr_8h_a6310f86022efa9b86127e24bac5ecea2}{00130}} \textcolor{keywordtype}{int} \mbox{\hyperlink{infStr_8c_a6310f86022efa9b86127e24bac5ecea2}{allocStr}}(\mbox{\hyperlink{structinfStr}{infStr}}* str, \textcolor{keywordtype}{int} num) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00131}00131   str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}} = (\textcolor{keywordtype}{char}*) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*num);}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00132}00132   str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}} = num;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00133}00133   \textcolor{keywordflow}{return} str-\/>\mbox{\hyperlink{structinfStr_a824e801b1910aea961ae467347b13a92}{allocSize}};}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00134}00134 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00142}\mbox{\hyperlink{infstr_8h_a4f8a60b5b8aaf9f9fcf19a7c777bd479}{00142}} \textcolor{keywordtype}{void} \mbox{\hyperlink{infStr_8c_a4f8a60b5b8aaf9f9fcf19a7c777bd479}{deallocStr}}(\mbox{\hyperlink{structinfStr}{infStr}}* str) \{}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00143}00143   str-\/>\mbox{\hyperlink{structinfStr_a0b6d2d589b6f0c5d44aeaa15ce865474}{end}} = str-\/>\mbox{\hyperlink{structinfStr_a5e63e3cdb68dcc4996c0484f20e7ea97}{start}} = 0;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00144}00144   str-\/>\mbox{\hyperlink{structinfStr_ad10514d1cd91a21a7339801890874905}{len}} = 0;}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00145}00145   free(str-\/>\mbox{\hyperlink{structinfStr_a46872431572cd751961c1fa051eed257}{str}});}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00146}00146 \}}
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{infStr_8c_source_l00148}00148 }
+
+\end{DoxyCode}
